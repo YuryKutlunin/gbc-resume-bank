@@ -47,6 +47,18 @@ public class CacheConfiguration {
             createCache(cm, com.glowbyteconsulting.resumebank.domain.User.class.getName());
             createCache(cm, com.glowbyteconsulting.resumebank.domain.Authority.class.getName());
             createCache(cm, com.glowbyteconsulting.resumebank.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Region.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Country.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Location.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Department.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Department.class.getName() + ".employees");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Task.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Task.class.getName() + ".jobs");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Employee.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Employee.class.getName() + ".jobs");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Job.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Job.class.getName() + ".tasks");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.JobHistory.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
