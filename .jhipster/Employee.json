@@ -2,12 +2,15 @@
   "name": "Employee",
   "fields": [
     {
-      "fieldName": "firstName",
-      "fieldType": "String",
-      "javadoc": "The firstname attribute."
+      "fieldName": "firstNm",
+      "fieldType": "String"
     },
     {
-      "fieldName": "lastName",
+      "fieldName": "lastNm",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "middleNm",
       "fieldType": "String"
     },
     {
@@ -15,50 +18,87 @@
       "fieldType": "String"
     },
     {
-      "fieldName": "phoneNumber",
+      "fieldName": "phoneNum",
       "fieldType": "String"
     },
     {
-      "fieldName": "hireDate",
+      "fieldName": "workType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "birthDt",
       "fieldType": "Instant"
     },
     {
-      "fieldName": "salary",
+      "fieldName": "idTitle",
       "fieldType": "Long"
     },
     {
-      "fieldName": "commissionPct",
-      "fieldType": "Long"
+      "fieldName": "resourcePoolCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emailCurator",
+      "fieldType": "String"
     }
   ],
   "relationships": [
     {
       "relationshipType": "one-to-many",
-      "otherEntityName": "job",
-      "otherEntityRelationshipName": "employee",
-      "relationshipName": "job"
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "email",
+      "relationshipName": "emailCurator"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "education",
+      "otherEntityRelationshipName": "email",
+      "relationshipName": "email"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "employeeProject",
+      "otherEntityRelationshipName": "email",
+      "relationshipName": "email"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "employeeCertif",
+      "otherEntityRelationshipName": "email",
+      "relationshipName": "email"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "employeeSkill",
+      "otherEntityRelationshipName": "email",
+      "relationshipName": "email"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "employee",
-      "otherEntityRelationshipName": "employee",
-      "relationshipName": "manager",
+      "otherEntityRelationshipName": "emailCurator",
+      "relationshipName": "email",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "department",
-      "otherEntityRelationshipName": "employee",
-      "javadoc": "Another side of the same relationship",
-      "relationshipName": "department",
+      "otherEntityName": "resourcePool",
+      "otherEntityRelationshipName": "idResourcePool",
+      "relationshipName": "idResourcePool",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "jobTitle",
+      "otherEntityRelationshipName": "idTitle",
+      "relationshipName": "idTitle",
       "otherEntityField": "id"
     }
   ],
   "changelogDate": "20201106074742",
-  "javadoc": "The Employee entity.",
   "entityTableName": "employee",
   "dto": "no",
-  "pagination": "infinite-scroll",
+  "pagination": "no",
   "service": "no",
   "jpaMetamodelFiltering": false,
   "fluentMethods": true,

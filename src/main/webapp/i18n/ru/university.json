@@ -1,0 +1,24 @@
+{
+  "gbcResumeBankApp": {
+    "university": {
+      "home": {
+        "title": "Universities",
+        "createLabel": "Создать новый University",
+        "createOrEditLabel": "Создать или отредактировать University",
+        "notFound": "No Universities found"
+      },
+      "created": "Новый University создан с идентификатором {{ param }}",
+      "updated": "University обновлен с идентификатором {{ param }}",
+      "deleted": "University удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить University {{ id }}?"
+      },
+      "detail": {
+        "title": "University"
+      },
+      "idUniver": "Id Univer",
+      "univerNm": "Univer Nm",
+      "idUniver": "Id Univer"
+    }
+  }
+}

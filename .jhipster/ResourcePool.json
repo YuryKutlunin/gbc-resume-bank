@@ -1,0 +1,36 @@
+{
+  "name": "ResourcePool",
+  "fields": [
+    {
+      "fieldName": "resourcePoolCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resourcePoolNm",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "poolLeader",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "idResourcePool",
+      "relationshipName": "idResourcePool"
+    }
+  ],
+  "changelogDate": "20201106115514",
+  "entityTableName": "resource_pool",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

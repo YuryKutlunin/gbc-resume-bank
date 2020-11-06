@@ -72,13 +72,16 @@ class EmployeeGatlingTest extends Simulation {
             .headers(headers_http_authenticated)
             .body(StringBody("""{
                 "id":null
-                , "firstName":"SAMPLE_TEXT"
-                , "lastName":"SAMPLE_TEXT"
+                , "firstNm":"SAMPLE_TEXT"
+                , "lastNm":"SAMPLE_TEXT"
+                , "middleNm":"SAMPLE_TEXT"
                 , "email":"SAMPLE_TEXT"
-                , "phoneNumber":"SAMPLE_TEXT"
-                , "hireDate":"2020-01-01T00:00:00.000Z"
-                , "salary":null
-                , "commissionPct":null
+                , "phoneNum":"SAMPLE_TEXT"
+                , "workType":"SAMPLE_TEXT"
+                , "birthDt":"2020-01-01T00:00:00.000Z"
+                , "idTitle":null
+                , "resourcePoolCode":"SAMPLE_TEXT"
+                , "emailCurator":"SAMPLE_TEXT"
                 }""")).asJson
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_employee_url"))).exitHereIfFailed

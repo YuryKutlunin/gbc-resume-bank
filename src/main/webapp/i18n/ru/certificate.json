@@ -1,0 +1,25 @@
+{
+  "gbcResumeBankApp": {
+    "certificate": {
+      "home": {
+        "title": "Certificates",
+        "createLabel": "Создать новый Certificate",
+        "createOrEditLabel": "Создать или отредактировать Certificate",
+        "notFound": "No Certificates found"
+      },
+      "created": "Новый Certificate создан с идентификатором {{ param }}",
+      "updated": "Certificate обновлен с идентификатором {{ param }}",
+      "deleted": "Certificate удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Certificate {{ id }}?"
+      },
+      "detail": {
+        "title": "Certificate"
+      },
+      "idCertificate": "Id Certificate",
+      "certificateNm": "Certificate Nm",
+      "certScopeNm": "Cert Scope Nm",
+      "idCertificate": "Id Certificate"
+    }
+  }
+}

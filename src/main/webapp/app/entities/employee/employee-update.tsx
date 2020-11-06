@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Row, Col, Label, UncontrolledTooltip } from 'reactstrap';
+import { Button, Row, Col, Label } from 'reactstrap';
 import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
 import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
 import { getEntities as getEmployees } from 'app/entities/employee/employee.reducer';
-import { IDepartment } from 'app/shared/model/department.model';
-import { getEntities as getDepartments } from 'app/entities/department/department.reducer';
+import { IResourcePool } from 'app/shared/model/resource-pool.model';
+import { getEntities as getResourcePools } from 'app/entities/resource-pool/resource-pool.reducer';
+import { IJobTitle } from 'app/shared/model/job-title.model';
+import { getEntities as getJobTitles } from 'app/entities/job-title/job-title.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './employee.reducer';
 import { IEmployee } from 'app/shared/model/employee.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
@@ -18,23 +20,28 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 export interface IEmployeeUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const EmployeeUpdate = (props: IEmployeeUpdateProps) => {
-  const [managerId, setManagerId] = useState('0');
-  const [departmentId, setDepartmentId] = useState('0');
+  const [emailCuratorId, setEmailCuratorId] = useState('0');
+  const [emailId, setEmailId] = useState('0');
+  const [idResourcePoolId, setIdResourcePoolId] = useState('0');
+  const [idTitleId, setIdTitleId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
-  const { employeeEntity, employees, departments, loading, updating } = props;
+  const { employeeEntity, employees, resourcePools, jobTitles, loading, updating } = props;
 
   const handleClose = () => {
     props.history.push('/employee');
   };
 
   useEffect(() => {
-    if (!isNew) {
+    if (isNew) {
+      props.reset();
+    } else {
       props.getEntity(props.match.params.id);
     }
 
     props.getEmployees();
-    props.getDepartments();
+    props.getResourcePools();
+    props.getJobTitles();
   }, []);
 
   useEffect(() => {
@@ -44,7 +51,7 @@ export const EmployeeUpdate = (props: IEmployeeUpdateProps) => {
   }, [props.updateSuccess]);
 
   const saveEntity = (event, errors, values) => {
-    values.hireDate = convertDateTimeToServer(values.hireDate);
+    values.birthDt = convertDateTimeToServer(values.birthDt);
 
     if (errors.length === 0) {
       const entity = {
@@ -84,19 +91,22 @@ export const EmployeeUpdate = (props: IEmployeeUpdateProps) => {
                 </AvGroup>
               ) : null}
               <AvGroup>
-                <Label id="firstNameLabel" for="employee-firstName">
-                  <Translate contentKey="gbcResumeBankApp.employee.firstName">First Name</Translate>
+                <Label id="firstNmLabel" for="employee-firstNm">
+                  <Translate contentKey="gbcResumeBankApp.employee.firstNm">First Nm</Translate>
                 </Label>
-                <AvField id="employee-firstName" type="text" name="firstName" />
-                <UncontrolledTooltip target="firstNameLabel">
-                  <Translate contentKey="gbcResumeBankApp.employee.help.firstName" />
-                </UncontrolledTooltip>
+                <AvField id="employee-firstNm" type="text" name="firstNm" />
               </AvGroup>
               <AvGroup>
-                <Label id="lastNameLabel" for="employee-lastName">
-                  <Translate contentKey="gbcResumeBankApp.employee.lastName">Last Name</Translate>
+                <Label id="lastNmLabel" for="employee-lastNm">
+                  <Translate contentKey="gbcResumeBankApp.employee.lastNm">Last Nm</Translate>
                 </Label>
-                <AvField id="employee-lastName" type="text" name="lastName" />
+                <AvField id="employee-lastNm" type="text" name="lastNm" />
+              </AvGroup>
+              <AvGroup>
+                <Label id="middleNmLabel" for="employee-middleNm">
+                  <Translate contentKey="gbcResumeBankApp.employee.middleNm">Middle Nm</Translate>
+                </Label>
+                <AvField id="employee-middleNm" type="text" name="middleNm" />
               </AvGroup>
               <AvGroup>
                 <Label id="emailLabel" for="employee-email">
@@ -105,41 +115,53 @@ export const EmployeeUpdate = (props: IEmployeeUpdateProps) => {
                 <AvField id="employee-email" type="text" name="email" />
               </AvGroup>
               <AvGroup>
-                <Label id="phoneNumberLabel" for="employee-phoneNumber">
-                  <Translate contentKey="gbcResumeBankApp.employee.phoneNumber">Phone Number</Translate>
+                <Label id="phoneNumLabel" for="employee-phoneNum">
+                  <Translate contentKey="gbcResumeBankApp.employee.phoneNum">Phone Num</Translate>
                 </Label>
-                <AvField id="employee-phoneNumber" type="text" name="phoneNumber" />
+                <AvField id="employee-phoneNum" type="text" name="phoneNum" />
               </AvGroup>
               <AvGroup>
-                <Label id="hireDateLabel" for="employee-hireDate">
-                  <Translate contentKey="gbcResumeBankApp.employee.hireDate">Hire Date</Translate>
+                <Label id="workTypeLabel" for="employee-workType">
+                  <Translate contentKey="gbcResumeBankApp.employee.workType">Work Type</Translate>
+                </Label>
+                <AvField id="employee-workType" type="text" name="workType" />
+              </AvGroup>
+              <AvGroup>
+                <Label id="birthDtLabel" for="employee-birthDt">
+                  <Translate contentKey="gbcResumeBankApp.employee.birthDt">Birth Dt</Translate>
                 </Label>
                 <AvInput
-                  id="employee-hireDate"
+                  id="employee-birthDt"
                   type="datetime-local"
                   className="form-control"
-                  name="hireDate"
+                  name="birthDt"
                   placeholder={'YYYY-MM-DD HH:mm'}
-                  value={isNew ? displayDefaultDateTime() : convertDateTimeFromServer(props.employeeEntity.hireDate)}
+                  value={isNew ? displayDefaultDateTime() : convertDateTimeFromServer(props.employeeEntity.birthDt)}
                 />
               </AvGroup>
               <AvGroup>
-                <Label id="salaryLabel" for="employee-salary">
-                  <Translate contentKey="gbcResumeBankApp.employee.salary">Salary</Translate>
+                <Label id="idTitleLabel" for="employee-idTitle">
+                  <Translate contentKey="gbcResumeBankApp.employee.idTitle">Id Title</Translate>
                 </Label>
-                <AvField id="employee-salary" type="string" className="form-control" name="salary" />
+                <AvField id="employee-idTitle" type="string" className="form-control" name="idTitle" />
               </AvGroup>
               <AvGroup>
-                <Label id="commissionPctLabel" for="employee-commissionPct">
-                  <Translate contentKey="gbcResumeBankApp.employee.commissionPct">Commission Pct</Translate>
+                <Label id="resourcePoolCodeLabel" for="employee-resourcePoolCode">
+                  <Translate contentKey="gbcResumeBankApp.employee.resourcePoolCode">Resource Pool Code</Translate>
                 </Label>
-                <AvField id="employee-commissionPct" type="string" className="form-control" name="commissionPct" />
+                <AvField id="employee-resourcePoolCode" type="text" name="resourcePoolCode" />
               </AvGroup>
               <AvGroup>
-                <Label for="employee-manager">
-                  <Translate contentKey="gbcResumeBankApp.employee.manager">Manager</Translate>
+                <Label id="emailCuratorLabel" for="employee-emailCurator">
+                  <Translate contentKey="gbcResumeBankApp.employee.emailCurator">Email Curator</Translate>
                 </Label>
-                <AvInput id="employee-manager" type="select" className="form-control" name="manager.id">
+                <AvField id="employee-emailCurator" type="text" name="emailCurator" />
+              </AvGroup>
+              <AvGroup>
+                <Label for="employee-email">
+                  <Translate contentKey="gbcResumeBankApp.employee.email">Email</Translate>
+                </Label>
+                <AvInput id="employee-email" type="select" className="form-control" name="email.id">
                   <option value="" key="0" />
                   {employees
                     ? employees.map(otherEntity => (
@@ -151,13 +173,28 @@ export const EmployeeUpdate = (props: IEmployeeUpdateProps) => {
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label for="employee-department">
-                  <Translate contentKey="gbcResumeBankApp.employee.department">Department</Translate>
+                <Label for="employee-idResourcePool">
+                  <Translate contentKey="gbcResumeBankApp.employee.idResourcePool">Id Resource Pool</Translate>
                 </Label>
-                <AvInput id="employee-department" type="select" className="form-control" name="department.id">
+                <AvInput id="employee-idResourcePool" type="select" className="form-control" name="idResourcePool.id">
                   <option value="" key="0" />
-                  {departments
-                    ? departments.map(otherEntity => (
+                  {resourcePools
+                    ? resourcePools.map(otherEntity => (
+                        <option value={otherEntity.id} key={otherEntity.id}>
+                          {otherEntity.id}
+                        </option>
+                      ))
+                    : null}
+                </AvInput>
+              </AvGroup>
+              <AvGroup>
+                <Label for="employee-idTitle">
+                  <Translate contentKey="gbcResumeBankApp.employee.idTitle">Id Title</Translate>
+                </Label>
+                <AvInput id="employee-idTitle" type="select" className="form-control" name="idTitle.id">
+                  <option value="" key="0" />
+                  {jobTitles
+                    ? jobTitles.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
                           {otherEntity.id}
                         </option>
@@ -188,7 +225,8 @@ export const EmployeeUpdate = (props: IEmployeeUpdateProps) => {
 
 const mapStateToProps = (storeState: IRootState) => ({
   employees: storeState.employee.entities,
-  departments: storeState.department.entities,
+  resourcePools: storeState.resourcePool.entities,
+  jobTitles: storeState.jobTitle.entities,
   employeeEntity: storeState.employee.entity,
   loading: storeState.employee.loading,
   updating: storeState.employee.updating,
@@ -197,7 +235,8 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getEmployees,
-  getDepartments,
+  getResourcePools,
+  getJobTitles,
   getEntity,
   updateEntity,
   createEntity,

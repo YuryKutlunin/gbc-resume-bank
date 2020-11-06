@@ -1,0 +1,24 @@
+{
+  "gbcResumeBankApp": {
+    "skillLevel": {
+      "home": {
+        "title": "Skill Levels",
+        "createLabel": "Создать новый Skill Level",
+        "createOrEditLabel": "Создать или отредактировать Skill Level",
+        "notFound": "No Skill Levels found"
+      },
+      "created": "Новый Skill Level создан с идентификатором {{ param }}",
+      "updated": "Skill Level обновлен с идентификатором {{ param }}",
+      "deleted": "Skill Level удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Skill Level {{ id }}?"
+      },
+      "detail": {
+        "title": "Skill Level"
+      },
+      "idLevel": "Id Level",
+      "levelDesc": "Level Desc",
+      "idLevel": "Id Level"
+    }
+  }
+}

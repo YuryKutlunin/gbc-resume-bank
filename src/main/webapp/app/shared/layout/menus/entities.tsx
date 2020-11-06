@@ -37,6 +37,51 @@ export const EntitiesMenu = props => (
     <MenuItem icon="asterisk" to="/job-history">
       <Translate contentKey="global.menu.entities.jobHistory" />
     </MenuItem>
+    <MenuItem icon="asterisk" to="/resource-pool">
+      <Translate contentKey="global.menu.entities.resourcePool" />
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/job-title">
+      <Translate contentKey="global.menu.entities.jobTitle" />
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/education">
+      <Translate contentKey="global.menu.entities.education" />
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/university">
+      <Translate contentKey="global.menu.entities.university" />
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/educ-type">
+      <Translate contentKey="global.menu.entities.educType" />
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/project">
+      <Translate contentKey="global.menu.entities.project" />
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/project-technology">
+      <Translate contentKey="global.menu.entities.projectTechnology" />
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/technology">
+      <Translate contentKey="global.menu.entities.technology" />
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/employee-project">
+      <Translate contentKey="global.menu.entities.employeeProject" />
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/project-role">
+      <Translate contentKey="global.menu.entities.projectRole" />
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/certificate">
+      <Translate contentKey="global.menu.entities.certificate" />
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/employee-certif">
+      <Translate contentKey="global.menu.entities.employeeCertif" />
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/skill">
+      <Translate contentKey="global.menu.entities.skill" />
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/employee-skill">
+      <Translate contentKey="global.menu.entities.employeeSkill" />
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/skill-level">
+      <Translate contentKey="global.menu.entities.skillLevel" />
+    </MenuItem>
     {/* jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here */}
   </NavDropdown>
 );

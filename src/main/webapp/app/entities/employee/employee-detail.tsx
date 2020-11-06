@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, UncontrolledTooltip, Row, Col } from 'reactstrap';
+import { Button, Row, Col } from 'reactstrap';
 import { Translate, ICrudGetAction, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -26,20 +26,23 @@ export const EmployeeDetail = (props: IEmployeeDetailProps) => {
         </h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="firstName">
-              <Translate contentKey="gbcResumeBankApp.employee.firstName">First Name</Translate>
+            <span id="firstNm">
+              <Translate contentKey="gbcResumeBankApp.employee.firstNm">First Nm</Translate>
             </span>
-            <UncontrolledTooltip target="firstName">
-              <Translate contentKey="gbcResumeBankApp.employee.help.firstName" />
-            </UncontrolledTooltip>
           </dt>
-          <dd>{employeeEntity.firstName}</dd>
+          <dd>{employeeEntity.firstNm}</dd>
           <dt>
-            <span id="lastName">
-              <Translate contentKey="gbcResumeBankApp.employee.lastName">Last Name</Translate>
+            <span id="lastNm">
+              <Translate contentKey="gbcResumeBankApp.employee.lastNm">Last Nm</Translate>
             </span>
           </dt>
-          <dd>{employeeEntity.lastName}</dd>
+          <dd>{employeeEntity.lastNm}</dd>
+          <dt>
+            <span id="middleNm">
+              <Translate contentKey="gbcResumeBankApp.employee.middleNm">Middle Nm</Translate>
+            </span>
+          </dt>
+          <dd>{employeeEntity.middleNm}</dd>
           <dt>
             <span id="email">
               <Translate contentKey="gbcResumeBankApp.employee.email">Email</Translate>
@@ -47,37 +50,53 @@ export const EmployeeDetail = (props: IEmployeeDetailProps) => {
           </dt>
           <dd>{employeeEntity.email}</dd>
           <dt>
-            <span id="phoneNumber">
-              <Translate contentKey="gbcResumeBankApp.employee.phoneNumber">Phone Number</Translate>
+            <span id="phoneNum">
+              <Translate contentKey="gbcResumeBankApp.employee.phoneNum">Phone Num</Translate>
             </span>
           </dt>
-          <dd>{employeeEntity.phoneNumber}</dd>
+          <dd>{employeeEntity.phoneNum}</dd>
           <dt>
-            <span id="hireDate">
-              <Translate contentKey="gbcResumeBankApp.employee.hireDate">Hire Date</Translate>
+            <span id="workType">
+              <Translate contentKey="gbcResumeBankApp.employee.workType">Work Type</Translate>
             </span>
           </dt>
-          <dd>{employeeEntity.hireDate ? <TextFormat value={employeeEntity.hireDate} type="date" format={APP_DATE_FORMAT} /> : null}</dd>
+          <dd>{employeeEntity.workType}</dd>
           <dt>
-            <span id="salary">
-              <Translate contentKey="gbcResumeBankApp.employee.salary">Salary</Translate>
+            <span id="birthDt">
+              <Translate contentKey="gbcResumeBankApp.employee.birthDt">Birth Dt</Translate>
             </span>
           </dt>
-          <dd>{employeeEntity.salary}</dd>
+          <dd>{employeeEntity.birthDt ? <TextFormat value={employeeEntity.birthDt} type="date" format={APP_DATE_FORMAT} /> : null}</dd>
           <dt>
-            <span id="commissionPct">
-              <Translate contentKey="gbcResumeBankApp.employee.commissionPct">Commission Pct</Translate>
+            <span id="idTitle">
+              <Translate contentKey="gbcResumeBankApp.employee.idTitle">Id Title</Translate>
             </span>
           </dt>
-          <dd>{employeeEntity.commissionPct}</dd>
+          <dd>{employeeEntity.idTitle}</dd>
           <dt>
-            <Translate contentKey="gbcResumeBankApp.employee.manager">Manager</Translate>
+            <span id="resourcePoolCode">
+              <Translate contentKey="gbcResumeBankApp.employee.resourcePoolCode">Resource Pool Code</Translate>
+            </span>
           </dt>
-          <dd>{employeeEntity.manager ? employeeEntity.manager.id : ''}</dd>
+          <dd>{employeeEntity.resourcePoolCode}</dd>
           <dt>
-            <Translate contentKey="gbcResumeBankApp.employee.department">Department</Translate>
+            <span id="emailCurator">
+              <Translate contentKey="gbcResumeBankApp.employee.emailCurator">Email Curator</Translate>
+            </span>
           </dt>
-          <dd>{employeeEntity.department ? employeeEntity.department.id : ''}</dd>
+          <dd>{employeeEntity.emailCurator}</dd>
+          <dt>
+            <Translate contentKey="gbcResumeBankApp.employee.email">Email</Translate>
+          </dt>
+          <dd>{employeeEntity.email ? employeeEntity.email.id : ''}</dd>
+          <dt>
+            <Translate contentKey="gbcResumeBankApp.employee.idResourcePool">Id Resource Pool</Translate>
+          </dt>
+          <dd>{employeeEntity.idResourcePool ? employeeEntity.idResourcePool.id : ''}</dd>
+          <dt>
+            <Translate contentKey="gbcResumeBankApp.employee.idTitle">Id Title</Translate>
+          </dt>
+          <dd>{employeeEntity.idTitle ? employeeEntity.idTitle.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/employee" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

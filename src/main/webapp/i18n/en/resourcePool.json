@@ -1,0 +1,25 @@
+{
+  "gbcResumeBankApp": {
+    "resourcePool": {
+      "home": {
+        "title": "Resource Pools",
+        "createLabel": "Create a new Resource Pool",
+        "createOrEditLabel": "Create or edit a Resource Pool",
+        "notFound": "No Resource Pools found"
+      },
+      "created": "A new Resource Pool is created with identifier {{ param }}",
+      "updated": "A Resource Pool is updated with identifier {{ param }}",
+      "deleted": "A Resource Pool is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Resource Pool {{ id }}?"
+      },
+      "detail": {
+        "title": "Resource Pool"
+      },
+      "resourcePoolCode": "Resource Pool Code",
+      "resourcePoolNm": "Resource Pool Nm",
+      "poolLeader": "Pool Leader",
+      "idResourcePool": "Id Resource Pool"
+    }
+  }
+}

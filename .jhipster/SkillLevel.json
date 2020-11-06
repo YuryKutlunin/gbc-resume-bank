@@ -1,0 +1,32 @@
+{
+  "name": "SkillLevel",
+  "fields": [
+    {
+      "fieldName": "idLevel",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "levelDesc",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "employeeSkill",
+      "otherEntityRelationshipName": "idLevel",
+      "relationshipName": "idLevel"
+    }
+  ],
+  "changelogDate": "20201106120914",
+  "entityTableName": "skill_level",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

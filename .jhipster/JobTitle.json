@@ -1,0 +1,32 @@
+{
+  "name": "JobTitle",
+  "fields": [
+    {
+      "fieldName": "idTitle",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "titleNM",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "idTitle",
+      "relationshipName": "idTitle"
+    }
+  ],
+  "changelogDate": "20201106115614",
+  "entityTableName": "job_title",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
