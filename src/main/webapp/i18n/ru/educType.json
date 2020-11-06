@@ -1,0 +1,24 @@
+{
+  "gbcResumeBankApp": {
+    "educType": {
+      "home": {
+        "title": "Educ Types",
+        "createLabel": "Создать новый Educ Type",
+        "createOrEditLabel": "Создать или отредактировать Educ Type",
+        "notFound": "No Educ Types found"
+      },
+      "created": "Новый Educ Type создан с идентификатором {{ param }}",
+      "updated": "Educ Type обновлен с идентификатором {{ param }}",
+      "deleted": "Educ Type удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Educ Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Educ Type"
+      },
+      "idEducType": "Id Educ Type",
+      "educTypeNm": "Educ Type Nm",
+      "idEducType": "Id Educ Type"
+    }
+  }
+}

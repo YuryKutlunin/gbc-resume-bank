@@ -16,19 +16,24 @@
       "detail": {
         "title": "Employee"
       },
-      "firstName": "First Name",
-      "lastName": "Last Name",
+      "firstNm": "First Nm",
+      "lastNm": "Last Nm",
+      "middleNm": "Middle Nm",
       "email": "Email",
-      "phoneNumber": "Phone Number",
-      "hireDate": "Hire Date",
-      "salary": "Salary",
-      "commissionPct": "Commission Pct",
-      "job": "Job",
-      "manager": "Manager",
-      "department": "Department",
-      "help": {
-        "firstName": "The firstname attribute."
-      }
+      "phoneNum": "Phone Num",
+      "workType": "Work Type",
+      "birthDt": "Birth Dt",
+      "idTitle": "Id Title",
+      "resourcePoolCode": "Resource Pool Code",
+      "emailCurator": "Email Curator",
+      "emailCurator": "Email Curator",
+      "email": "Email",
+      "email": "Email",
+      "email": "Email",
+      "email": "Email",
+      "email": "Email",
+      "idResourcePool": "Id Resource Pool",
+      "idTitle": "Id Title"
     }
   }
 }

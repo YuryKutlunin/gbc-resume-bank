@@ -1,0 +1,27 @@
+{
+  "gbcResumeBankApp": {
+    "employeeCertif": {
+      "home": {
+        "title": "Employee Certifs",
+        "createLabel": "Создать новый Employee Certif",
+        "createOrEditLabel": "Создать или отредактировать Employee Certif",
+        "notFound": "No Employee Certifs found"
+      },
+      "created": "Новый Employee Certif создан с идентификатором {{ param }}",
+      "updated": "Employee Certif обновлен с идентификатором {{ param }}",
+      "deleted": "Employee Certif удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Employee Certif {{ id }}?"
+      },
+      "detail": {
+        "title": "Employee Certif"
+      },
+      "email": "Email",
+      "idCertificate": "Id Certificate",
+      "startDt": "Start Dt",
+      "endDt": "End Dt",
+      "email": "Email",
+      "idCertificate": "Id Certificate"
+    }
+  }
+}

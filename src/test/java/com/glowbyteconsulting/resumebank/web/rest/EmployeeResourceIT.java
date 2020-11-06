@@ -31,26 +31,35 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class EmployeeResourceIT {
 
-    private static final String DEFAULT_FIRST_NAME = "AAAAAAAAAA";
-    private static final String UPDATED_FIRST_NAME = "BBBBBBBBBB";
+    private static final String DEFAULT_FIRST_NM = "AAAAAAAAAA";
+    private static final String UPDATED_FIRST_NM = "BBBBBBBBBB";
 
-    private static final String DEFAULT_LAST_NAME = "AAAAAAAAAA";
-    private static final String UPDATED_LAST_NAME = "BBBBBBBBBB";
+    private static final String DEFAULT_LAST_NM = "AAAAAAAAAA";
+    private static final String UPDATED_LAST_NM = "BBBBBBBBBB";
+
+    private static final String DEFAULT_MIDDLE_NM = "AAAAAAAAAA";
+    private static final String UPDATED_MIDDLE_NM = "BBBBBBBBBB";
 
     private static final String DEFAULT_EMAIL = "AAAAAAAAAA";
     private static final String UPDATED_EMAIL = "BBBBBBBBBB";
 
-    private static final String DEFAULT_PHONE_NUMBER = "AAAAAAAAAA";
-    private static final String UPDATED_PHONE_NUMBER = "BBBBBBBBBB";
+    private static final String DEFAULT_PHONE_NUM = "AAAAAAAAAA";
+    private static final String UPDATED_PHONE_NUM = "BBBBBBBBBB";
 
-    private static final Instant DEFAULT_HIRE_DATE = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_HIRE_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+    private static final String DEFAULT_WORK_TYPE = "AAAAAAAAAA";
+    private static final String UPDATED_WORK_TYPE = "BBBBBBBBBB";
 
-    private static final Long DEFAULT_SALARY = 1L;
-    private static final Long UPDATED_SALARY = 2L;
+    private static final Instant DEFAULT_BIRTH_DT = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_BIRTH_DT = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
-    private static final Long DEFAULT_COMMISSION_PCT = 1L;
-    private static final Long UPDATED_COMMISSION_PCT = 2L;
+    private static final Long DEFAULT_ID_TITLE = 1L;
+    private static final Long UPDATED_ID_TITLE = 2L;
+
+    private static final String DEFAULT_RESOURCE_POOL_CODE = "AAAAAAAAAA";
+    private static final String UPDATED_RESOURCE_POOL_CODE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_EMAIL_CURATOR = "AAAAAAAAAA";
+    private static final String UPDATED_EMAIL_CURATOR = "BBBBBBBBBB";
 
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -71,13 +80,16 @@ public class EmployeeResourceIT {
      */
     public static Employee createEntity(EntityManager em) {
         Employee employee = new Employee()
-            .firstName(DEFAULT_FIRST_NAME)
-            .lastName(DEFAULT_LAST_NAME)
+            .firstNm(DEFAULT_FIRST_NM)
+            .lastNm(DEFAULT_LAST_NM)
+            .middleNm(DEFAULT_MIDDLE_NM)
             .email(DEFAULT_EMAIL)
-            .phoneNumber(DEFAULT_PHONE_NUMBER)
-            .hireDate(DEFAULT_HIRE_DATE)
-            .salary(DEFAULT_SALARY)
-            .commissionPct(DEFAULT_COMMISSION_PCT);
+            .phoneNum(DEFAULT_PHONE_NUM)
+            .workType(DEFAULT_WORK_TYPE)
+            .birthDt(DEFAULT_BIRTH_DT)
+            .idTitle(DEFAULT_ID_TITLE)
+            .resourcePoolCode(DEFAULT_RESOURCE_POOL_CODE)
+            .emailCurator(DEFAULT_EMAIL_CURATOR);
         return employee;
     }
     /**
@@ -88,13 +100,16 @@ public class EmployeeResourceIT {
      */
     public static Employee createUpdatedEntity(EntityManager em) {
         Employee employee = new Employee()
-            .firstName(UPDATED_FIRST_NAME)
-            .lastName(UPDATED_LAST_NAME)
+            .firstNm(UPDATED_FIRST_NM)
+            .lastNm(UPDATED_LAST_NM)
+            .middleNm(UPDATED_MIDDLE_NM)
             .email(UPDATED_EMAIL)
-            .phoneNumber(UPDATED_PHONE_NUMBER)
-            .hireDate(UPDATED_HIRE_DATE)
-            .salary(UPDATED_SALARY)
-            .commissionPct(UPDATED_COMMISSION_PCT);
+            .phoneNum(UPDATED_PHONE_NUM)
+            .workType(UPDATED_WORK_TYPE)
+            .birthDt(UPDATED_BIRTH_DT)
+            .idTitle(UPDATED_ID_TITLE)
+            .resourcePoolCode(UPDATED_RESOURCE_POOL_CODE)
+            .emailCurator(UPDATED_EMAIL_CURATOR);
         return employee;
     }
 
@@ -117,13 +132,16 @@ public class EmployeeResourceIT {
         List<Employee> employeeList = employeeRepository.findAll();
         assertThat(employeeList).hasSize(databaseSizeBeforeCreate + 1);
         Employee testEmployee = employeeList.get(employeeList.size() - 1);
-        assertThat(testEmployee.getFirstName()).isEqualTo(DEFAULT_FIRST_NAME);
-        assertThat(testEmployee.getLastName()).isEqualTo(DEFAULT_LAST_NAME);
+        assertThat(testEmployee.getFirstNm()).isEqualTo(DEFAULT_FIRST_NM);
+        assertThat(testEmployee.getLastNm()).isEqualTo(DEFAULT_LAST_NM);
+        assertThat(testEmployee.getMiddleNm()).isEqualTo(DEFAULT_MIDDLE_NM);
         assertThat(testEmployee.getEmail()).isEqualTo(DEFAULT_EMAIL);
-        assertThat(testEmployee.getPhoneNumber()).isEqualTo(DEFAULT_PHONE_NUMBER);
-        assertThat(testEmployee.getHireDate()).isEqualTo(DEFAULT_HIRE_DATE);
-        assertThat(testEmployee.getSalary()).isEqualTo(DEFAULT_SALARY);
-        assertThat(testEmployee.getCommissionPct()).isEqualTo(DEFAULT_COMMISSION_PCT);
+        assertThat(testEmployee.getPhoneNum()).isEqualTo(DEFAULT_PHONE_NUM);
+        assertThat(testEmployee.getWorkType()).isEqualTo(DEFAULT_WORK_TYPE);
+        assertThat(testEmployee.getBirthDt()).isEqualTo(DEFAULT_BIRTH_DT);
+        assertThat(testEmployee.getIdTitle()).isEqualTo(DEFAULT_ID_TITLE);
+        assertThat(testEmployee.getResourcePoolCode()).isEqualTo(DEFAULT_RESOURCE_POOL_CODE);
+        assertThat(testEmployee.getEmailCurator()).isEqualTo(DEFAULT_EMAIL_CURATOR);
     }
 
     @Test
@@ -157,13 +175,16 @@ public class EmployeeResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(employee.getId().intValue())))
-            .andExpect(jsonPath("$.[*].firstName").value(hasItem(DEFAULT_FIRST_NAME)))
-            .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_LAST_NAME)))
+            .andExpect(jsonPath("$.[*].firstNm").value(hasItem(DEFAULT_FIRST_NM)))
+            .andExpect(jsonPath("$.[*].lastNm").value(hasItem(DEFAULT_LAST_NM)))
+            .andExpect(jsonPath("$.[*].middleNm").value(hasItem(DEFAULT_MIDDLE_NM)))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL)))
-            .andExpect(jsonPath("$.[*].phoneNumber").value(hasItem(DEFAULT_PHONE_NUMBER)))
-            .andExpect(jsonPath("$.[*].hireDate").value(hasItem(DEFAULT_HIRE_DATE.toString())))
-            .andExpect(jsonPath("$.[*].salary").value(hasItem(DEFAULT_SALARY.intValue())))
-            .andExpect(jsonPath("$.[*].commissionPct").value(hasItem(DEFAULT_COMMISSION_PCT.intValue())));
+            .andExpect(jsonPath("$.[*].phoneNum").value(hasItem(DEFAULT_PHONE_NUM)))
+            .andExpect(jsonPath("$.[*].workType").value(hasItem(DEFAULT_WORK_TYPE)))
+            .andExpect(jsonPath("$.[*].birthDt").value(hasItem(DEFAULT_BIRTH_DT.toString())))
+            .andExpect(jsonPath("$.[*].idTitle").value(hasItem(DEFAULT_ID_TITLE.intValue())))
+            .andExpect(jsonPath("$.[*].resourcePoolCode").value(hasItem(DEFAULT_RESOURCE_POOL_CODE)))
+            .andExpect(jsonPath("$.[*].emailCurator").value(hasItem(DEFAULT_EMAIL_CURATOR)));
     }
     
     @Test
@@ -177,13 +198,16 @@ public class EmployeeResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(employee.getId().intValue()))
-            .andExpect(jsonPath("$.firstName").value(DEFAULT_FIRST_NAME))
-            .andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME))
+            .andExpect(jsonPath("$.firstNm").value(DEFAULT_FIRST_NM))
+            .andExpect(jsonPath("$.lastNm").value(DEFAULT_LAST_NM))
+            .andExpect(jsonPath("$.middleNm").value(DEFAULT_MIDDLE_NM))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL))
-            .andExpect(jsonPath("$.phoneNumber").value(DEFAULT_PHONE_NUMBER))
-            .andExpect(jsonPath("$.hireDate").value(DEFAULT_HIRE_DATE.toString()))
-            .andExpect(jsonPath("$.salary").value(DEFAULT_SALARY.intValue()))
-            .andExpect(jsonPath("$.commissionPct").value(DEFAULT_COMMISSION_PCT.intValue()));
+            .andExpect(jsonPath("$.phoneNum").value(DEFAULT_PHONE_NUM))
+            .andExpect(jsonPath("$.workType").value(DEFAULT_WORK_TYPE))
+            .andExpect(jsonPath("$.birthDt").value(DEFAULT_BIRTH_DT.toString()))
+            .andExpect(jsonPath("$.idTitle").value(DEFAULT_ID_TITLE.intValue()))
+            .andExpect(jsonPath("$.resourcePoolCode").value(DEFAULT_RESOURCE_POOL_CODE))
+            .andExpect(jsonPath("$.emailCurator").value(DEFAULT_EMAIL_CURATOR));
     }
     @Test
     @Transactional
@@ -206,13 +230,16 @@ public class EmployeeResourceIT {
         // Disconnect from session so that the updates on updatedEmployee are not directly saved in db
         em.detach(updatedEmployee);
         updatedEmployee
-            .firstName(UPDATED_FIRST_NAME)
-            .lastName(UPDATED_LAST_NAME)
+            .firstNm(UPDATED_FIRST_NM)
+            .lastNm(UPDATED_LAST_NM)
+            .middleNm(UPDATED_MIDDLE_NM)
             .email(UPDATED_EMAIL)
-            .phoneNumber(UPDATED_PHONE_NUMBER)
-            .hireDate(UPDATED_HIRE_DATE)
-            .salary(UPDATED_SALARY)
-            .commissionPct(UPDATED_COMMISSION_PCT);
+            .phoneNum(UPDATED_PHONE_NUM)
+            .workType(UPDATED_WORK_TYPE)
+            .birthDt(UPDATED_BIRTH_DT)
+            .idTitle(UPDATED_ID_TITLE)
+            .resourcePoolCode(UPDATED_RESOURCE_POOL_CODE)
+            .emailCurator(UPDATED_EMAIL_CURATOR);
 
         restEmployeeMockMvc.perform(put("/api/employees")
             .contentType(MediaType.APPLICATION_JSON)
@@ -223,13 +250,16 @@ public class EmployeeResourceIT {
         List<Employee> employeeList = employeeRepository.findAll();
         assertThat(employeeList).hasSize(databaseSizeBeforeUpdate);
         Employee testEmployee = employeeList.get(employeeList.size() - 1);
-        assertThat(testEmployee.getFirstName()).isEqualTo(UPDATED_FIRST_NAME);
-        assertThat(testEmployee.getLastName()).isEqualTo(UPDATED_LAST_NAME);
+        assertThat(testEmployee.getFirstNm()).isEqualTo(UPDATED_FIRST_NM);
+        assertThat(testEmployee.getLastNm()).isEqualTo(UPDATED_LAST_NM);
+        assertThat(testEmployee.getMiddleNm()).isEqualTo(UPDATED_MIDDLE_NM);
         assertThat(testEmployee.getEmail()).isEqualTo(UPDATED_EMAIL);
-        assertThat(testEmployee.getPhoneNumber()).isEqualTo(UPDATED_PHONE_NUMBER);
-        assertThat(testEmployee.getHireDate()).isEqualTo(UPDATED_HIRE_DATE);
-        assertThat(testEmployee.getSalary()).isEqualTo(UPDATED_SALARY);
-        assertThat(testEmployee.getCommissionPct()).isEqualTo(UPDATED_COMMISSION_PCT);
+        assertThat(testEmployee.getPhoneNum()).isEqualTo(UPDATED_PHONE_NUM);
+        assertThat(testEmployee.getWorkType()).isEqualTo(UPDATED_WORK_TYPE);
+        assertThat(testEmployee.getBirthDt()).isEqualTo(UPDATED_BIRTH_DT);
+        assertThat(testEmployee.getIdTitle()).isEqualTo(UPDATED_ID_TITLE);
+        assertThat(testEmployee.getResourcePoolCode()).isEqualTo(UPDATED_RESOURCE_POOL_CODE);
+        assertThat(testEmployee.getEmailCurator()).isEqualTo(UPDATED_EMAIL_CURATOR);
     }
 
     @Test

@@ -1,0 +1,25 @@
+{
+  "gbcResumeBankApp": {
+    "projectTechnology": {
+      "home": {
+        "title": "Project Technologies",
+        "createLabel": "Create a new Project Technology",
+        "createOrEditLabel": "Create or edit a Project Technology",
+        "notFound": "No Project Technologies found"
+      },
+      "created": "A new Project Technology is created with identifier {{ param }}",
+      "updated": "A Project Technology is updated with identifier {{ param }}",
+      "deleted": "A Project Technology is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Project Technology {{ id }}?"
+      },
+      "detail": {
+        "title": "Project Technology"
+      },
+      "idProject": "Id Project",
+      "idTechnology": "Id Technology",
+      "idProject": "Id Project",
+      "idProject": "Id Project"
+    }
+  }
+}

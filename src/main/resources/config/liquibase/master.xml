@@ -22,6 +22,21 @@
     <include file="config/liquibase/changelog/20201106074742_added_entity_Employee.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201106074842_added_entity_Job.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201106074942_added_entity_JobHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106115514_added_entity_ResourcePool.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106115614_added_entity_JobTitle.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106115714_added_entity_Education.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106115814_added_entity_University.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106115914_added_entity_EducType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106120014_added_entity_Project.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106120114_added_entity_ProjectTechnology.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106120214_added_entity_Technology.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106120314_added_entity_EmployeeProject.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106120414_added_entity_ProjectRole.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106120514_added_entity_Certificate.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106120614_added_entity_EmployeeCertif.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106120714_added_entity_Skill.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106120814_added_entity_EmployeeSkill.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106120914_added_entity_SkillLevel.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20201106074342_added_entity_constraints_Country.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201106074442_added_entity_constraints_Location.xml" relativeToChangelogFile="false"/>
@@ -29,6 +44,11 @@
     <include file="config/liquibase/changelog/20201106074742_added_entity_constraints_Employee.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201106074842_added_entity_constraints_Job.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201106074942_added_entity_constraints_JobHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106115714_added_entity_constraints_Education.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106120114_added_entity_constraints_ProjectTechnology.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106120314_added_entity_constraints_EmployeeProject.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106120614_added_entity_constraints_EmployeeCertif.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201106120814_added_entity_constraints_EmployeeSkill.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

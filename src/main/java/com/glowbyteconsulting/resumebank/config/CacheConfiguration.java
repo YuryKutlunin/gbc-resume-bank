@@ -59,6 +59,33 @@ public class CacheConfiguration {
             createCache(cm, com.glowbyteconsulting.resumebank.domain.Job.class.getName());
             createCache(cm, com.glowbyteconsulting.resumebank.domain.Job.class.getName() + ".tasks");
             createCache(cm, com.glowbyteconsulting.resumebank.domain.JobHistory.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Employee.class.getName() + ".emailCurators");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Employee.class.getName() + ".emails");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.ResourcePool.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.ResourcePool.class.getName() + ".idResourcePools");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.JobTitle.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.JobTitle.class.getName() + ".idTitles");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Education.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.University.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.University.class.getName() + ".idUnivers");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.EducType.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.EducType.class.getName() + ".idEducTypes");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Project.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Project.class.getName() + ".idProjects");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.ProjectTechnology.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Technology.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Technology.class.getName() + ".idTechnologies");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.EmployeeProject.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.ProjectRole.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.ProjectRole.class.getName() + ".idRoles");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Certificate.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Certificate.class.getName() + ".idCertificates");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.EmployeeCertif.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Skill.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.Skill.class.getName() + ".idSkills");
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.EmployeeSkill.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.SkillLevel.class.getName());
+            createCache(cm, com.glowbyteconsulting.resumebank.domain.SkillLevel.class.getName() + ".idLevels");
             // jhipster-needle-ehcache-add-entry
         };
     }

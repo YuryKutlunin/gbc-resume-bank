@@ -1,0 +1,30 @@
+{
+  "gbcResumeBankApp": {
+    "employeeProject": {
+      "home": {
+        "title": "Employee Projects",
+        "createLabel": "Create a new Employee Project",
+        "createOrEditLabel": "Create or edit a Employee Project",
+        "notFound": "No Employee Projects found"
+      },
+      "created": "A new Employee Project is created with identifier {{ param }}",
+      "updated": "A Employee Project is updated with identifier {{ param }}",
+      "deleted": "A Employee Project is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Employee Project {{ id }}?"
+      },
+      "detail": {
+        "title": "Employee Project"
+      },
+      "email": "Email",
+      "idProject": "Id Project",
+      "idRole": "Id Role",
+      "responsibilityNm": "Responsibility Nm",
+      "startDt": "Start Dt",
+      "endDt": "End Dt",
+      "email": "Email",
+      "idProject": "Id Project",
+      "idRole": "Id Role"
+    }
+  }
+}

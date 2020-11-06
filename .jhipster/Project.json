@@ -1,0 +1,50 @@
+{
+  "name": "Project",
+  "fields": [
+    {
+      "fieldName": "idProject",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "projectNm",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "companyNM",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endDt",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "projectTechnology",
+      "otherEntityRelationshipName": "idProject",
+      "relationshipName": "idProject"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "employeeProject",
+      "otherEntityRelationshipName": "idProject",
+      "relationshipName": "idProject"
+    }
+  ],
+  "changelogDate": "20201106120014",
+  "entityTableName": "project",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

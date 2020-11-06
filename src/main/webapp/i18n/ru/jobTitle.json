@@ -1,0 +1,24 @@
+{
+  "gbcResumeBankApp": {
+    "jobTitle": {
+      "home": {
+        "title": "Job Titles",
+        "createLabel": "Создать новый Job Title",
+        "createOrEditLabel": "Создать или отредактировать Job Title",
+        "notFound": "No Job Titles found"
+      },
+      "created": "Новый Job Title создан с идентификатором {{ param }}",
+      "updated": "Job Title обновлен с идентификатором {{ param }}",
+      "deleted": "Job Title удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Job Title {{ id }}?"
+      },
+      "detail": {
+        "title": "Job Title"
+      },
+      "idTitle": "Id Title",
+      "titleNM": "Title NM",
+      "idTitle": "Id Title"
+    }
+  }
+}

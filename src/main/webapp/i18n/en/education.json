@@ -1,0 +1,32 @@
+{
+  "gbcResumeBankApp": {
+    "education": {
+      "home": {
+        "title": "Educations",
+        "createLabel": "Create a new Education",
+        "createOrEditLabel": "Create or edit a Education",
+        "notFound": "No Educations found"
+      },
+      "created": "A new Education is created with identifier {{ param }}",
+      "updated": "A Education is updated with identifier {{ param }}",
+      "deleted": "A Education is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Education {{ id }}?"
+      },
+      "detail": {
+        "title": "Education"
+      },
+      "email": "Email",
+      "idUniver": "Id Univer",
+      "idEducType": "Id Educ Type",
+      "faculty": "Faculty",
+      "specialty": "Specialty",
+      "specialization": "Specialization",
+      "startYear": "Start Year",
+      "endYear": "End Year",
+      "email": "Email",
+      "idUniver": "Id Univer",
+      "idEducType": "Id Educ Type"
+    }
+  }
+}

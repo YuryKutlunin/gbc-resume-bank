@@ -1,0 +1,27 @@
+{
+  "gbcResumeBankApp": {
+    "employeeSkill": {
+      "home": {
+        "title": "Employee Skills",
+        "createLabel": "Создать новый Employee Skill",
+        "createOrEditLabel": "Создать или отредактировать Employee Skill",
+        "notFound": "No Employee Skills found"
+      },
+      "created": "Новый Employee Skill создан с идентификатором {{ param }}",
+      "updated": "Employee Skill обновлен с идентификатором {{ param }}",
+      "deleted": "Employee Skill удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Employee Skill {{ id }}?"
+      },
+      "detail": {
+        "title": "Employee Skill"
+      },
+      "email": "Email",
+      "idSkill": "Id Skill",
+      "idLevel": "Id Level",
+      "email": "Email",
+      "idSkill": "Id Skill",
+      "idLevel": "Id Level"
+    }
+  }
+}

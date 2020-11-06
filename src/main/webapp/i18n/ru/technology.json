@@ -1,0 +1,24 @@
+{
+  "gbcResumeBankApp": {
+    "technology": {
+      "home": {
+        "title": "Technologies",
+        "createLabel": "Создать новый Technology",
+        "createOrEditLabel": "Создать или отредактировать Technology",
+        "notFound": "No Technologies found"
+      },
+      "created": "Новый Technology создан с идентификатором {{ param }}",
+      "updated": "Technology обновлен с идентификатором {{ param }}",
+      "deleted": "Technology удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Technology {{ id }}?"
+      },
+      "detail": {
+        "title": "Technology"
+      },
+      "idTechnology": "Id Technology",
+      "technologyNm": "Technology Nm",
+      "idTechnology": "Id Technology"
+    }
+  }
+}
